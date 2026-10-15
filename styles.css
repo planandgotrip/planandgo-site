@@ -1,0 +1,1246 @@
+/* Plan&Go: site publico (landing e paginas legais). Sem build e sem fontes
+   externas: tudo vem da pasta fonts/ (licenca OFL). */
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("fonts/SpaceMono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("fonts/SpaceMono-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fredoka";
+  src: url("fonts/Fredoka-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #eaeae7;
+  --surface: #f8f5ef;
+  --tile: #e2e2dd;
+  --ink: #16160f;
+  /* Texto secundario: 5,3:1 sobre o fundo. */
+  --ink-soft: #5f5f59;
+  --muted: #9c9c97;
+  --coral: #e0654a;
+  --coral-press: #c9543b;
+  /* Coral para texto pequeno sobre o fundo claro: 4,9:1. */
+  --coral-deep: #a84530;
+  --advent: #5e6b4e;
+  /* Destaque dos trechos ainda a preencher. */
+  --pending: #ffe08a;
+  --border: rgba(22, 22, 15, 0.14);
+  --shadow: 0 10px 28px rgba(22, 22, 15, 0.09);
+  --radius-card: 24px;
+  --radius-small: 16px;
+  --display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Space Mono", "Courier New", monospace;
+  --playful: "Fredoka", "Inter Tight", sans-serif;
+  --gutter: 20px;
+  --max: 1080px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--coral);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--coral-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral-deep);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 10;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Rotulos em caixa alta, como no app (Space Mono). */
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero .label,
+.section-head > .label,
+.card > .label {
+  margin: 0;
+}
+
+.label--soft {
+  color: var(--ink-soft);
+}
+
+.label--coral {
+  color: var(--coral-deep);
+}
+
+/* ---------- Topo ---------- */
+
+.site-header {
+  padding: 22px 0 6px;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+}
+
+.site-nav {
+  display: none;
+  gap: 22px;
+}
+
+.site-nav a {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--coral);
+}
+
+/* ---------- Pilulas ---------- */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Aviso de status, nao botao: sem o coral cheio das acoes. */
+.pill--soon {
+  background: rgba(224, 101, 74, 0.1);
+  border: 1.5px dashed var(--coral);
+  color: var(--ink);
+}
+
+.pill--coral {
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.pill--line {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+
+.pill--line:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex: 0 0 auto;
+}
+
+/* ---------- Abertura ---------- */
+
+.hero {
+  padding: 34px 0 20px;
+}
+
+.hero h1 {
+  margin: 14px 0 0;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  max-width: 13ch;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--coral-press);
+}
+
+.hero-lead {
+  margin: 18px 0 0;
+  max-width: 34rem;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.hero-actions p {
+  margin: 0;
+}
+
+.hero-note {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ---------- Telas do app recriadas ---------- */
+
+.screens {
+  display: flex;
+  gap: 16px;
+  margin: 34px calc(var(--gutter) * -1) 0;
+  padding: 6px var(--gutter) 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+}
+
+.screens:focus-visible {
+  outline-offset: -3px;
+}
+
+.phone {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 264px;
+  scroll-snap-align: start;
+  border-radius: 34px;
+  padding: 10px;
+  background: var(--ink);
+  box-shadow: 0 18px 40px rgba(22, 22, 15, 0.18);
+}
+
+.phone-screen {
+  height: 480px;
+  overflow: hidden;
+  border-radius: 26px;
+  background: var(--bg);
+  padding: 18px 14px;
+}
+
+.phone-caption {
+  margin: 12px 4px 0;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.mock-eyebrow {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.mock-title {
+  margin: 14px 0 12px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+/* Cartao da viagem da Home, sem foto: a cor de fundo do app. */
+.mock-trip {
+  position: relative;
+  height: 196px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--coral);
+  box-shadow: 0 8px 20px rgba(22, 22, 15, 0.16);
+}
+
+.mock-trip-meta {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.mock-trip-city {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.mock-trip-city small {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.mock-avatars {
+  position: absolute;
+  top: 38px;
+  right: 14px;
+  display: flex;
+}
+
+.mock-avatar {
+  width: 28px;
+  height: 28px;
+  margin-left: -8px;
+  border: 2px solid var(--coral);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.mock-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mock-stat {
+  flex: 1;
+  border-radius: 14px;
+  background: var(--tile);
+  padding: 10px 6px 8px;
+  text-align: center;
+}
+
+.mock-stat b {
+  display: block;
+  font-family: var(--playful);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.mock-stat span {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* Roteiro do dia. */
+.mock-days {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0 14px;
+}
+
+.mock-day {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 6px 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.mock-day b {
+  display: block;
+  font-family: var(--playful);
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.mock-day--on {
+  border-color: var(--coral);
+  background: rgba(224, 101, 74, 0.12);
+}
+
+.mock-hour {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mock-hour-n {
+  flex: 0 0 34px;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--coral-press);
+  text-align: center;
+}
+
+.mock-act {
+  flex: 1;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px 11px;
+}
+
+.mock-act b {
+  display: block;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+/* Sem caixa alta automatica: o horario fica minusculo, como no app
+   (`09h – 11h · PASSEIO`). */
+.mock-act span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.mock-act--flight {
+  background: var(--ink);
+  color: #fff;
+}
+
+.mock-act--flight span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Despesas e acerto. */
+.mock-sum {
+  margin-top: 14px;
+  border-radius: 18px;
+  background: var(--ink);
+  color: #fff;
+  padding: 16px 14px;
+}
+
+.mock-sum .label,
+.mock-settle .label {
+  font-size: 8px;
+}
+
+.mock-sum .label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.mock-sum-total {
+  margin-top: 6px;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.mock-sum-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.mock-sum-grid div {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.mock-sum-grid span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 7.5px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.mock-settle {
+  margin-top: 12px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 12px;
+}
+
+.mock-settle p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.mock-settle b {
+  font-family: var(--playful);
+  font-size: 18px;
+}
+
+.mock-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.mock-line b {
+  font-size: 13px;
+}
+
+.mock-chip {
+  flex: 0 0 auto;
+  border-radius: 12px;
+  padding: 3px 8px;
+  border: 1px solid rgba(94, 107, 78, 0.35);
+  background: rgba(94, 107, 78, 0.14);
+  color: var(--advent);
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Proximas viagens da tela inicial recriada. */
+.mock-next {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mock-next-card {
+  flex: 1;
+  height: 84px;
+  border-radius: 16px;
+  background: var(--advent);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.mock-next-card small {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mock-next-card--new {
+  background: transparent;
+  border: 1.5px dashed rgba(22, 22, 15, 0.3);
+  color: var(--ink-soft);
+  justify-content: center;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- Secoes ---------- */
+
+.section {
+  padding: 46px 0;
+}
+
+.section-head h2 {
+  margin: 10px 0 0;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.section-head p {
+  margin: 14px 0 0;
+  max-width: 38rem;
+  color: var(--ink-soft);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+}
+
+.card h3 {
+  margin: 10px 0 0;
+  font-size: 21px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.card p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.card--ink {
+  background: var(--ink);
+  color: #fff;
+}
+
+.card--ink p,
+.card--ink ul {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.card--ink .label {
+  color: var(--coral);
+}
+
+/* Papeis do grupo. */
+.roles {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  border-radius: var(--radius-small);
+  background: var(--tile);
+  padding: 16px 18px;
+}
+
+.role dt {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.role dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.facts {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  position: relative;
+  border-top: 1px solid var(--border);
+  padding: 12px 0 0 21px;
+}
+
+.facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+/* ---------- Rodape ---------- */
+
+.site-footer {
+  margin-top: 30px;
+  padding: 34px 0 40px;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.site-footer a:hover {
+  color: var(--coral);
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--coral);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-company {
+  margin: 22px 0 0;
+  line-height: 1.6;
+}
+
+.footer-company .label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--coral);
+}
+
+/* ---------- Paginas legais ---------- */
+
+.doc {
+  padding: 26px 0 30px;
+}
+
+.doc-inner {
+  max-width: 720px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--coral);
+}
+
+.doc h1 {
+  margin: 12px 0 0;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.doc-meta {
+  margin: 14px 0 0;
+}
+
+.summary {
+  margin: 26px 0 0;
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.summary h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.summary ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.summary li + li {
+  margin-top: 6px;
+}
+
+.toc {
+  margin: 26px 0 0;
+  border-left: 3px solid var(--coral);
+  padding: 2px 0 2px 16px;
+}
+
+.toc h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.toc ol {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.toc li + li {
+  margin-top: 4px;
+}
+
+.doc section {
+  margin-top: 34px;
+  scroll-margin-top: 16px;
+}
+
+.doc section h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.doc section h3 {
+  margin: 22px 0 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.doc p,
+.doc li {
+  max-width: 68ch;
+}
+
+.doc .note {
+  max-width: none;
+}
+
+/* CNPJ e outros trechos que nao podem quebrar no meio. */
+.nowrap {
+  white-space: nowrap;
+}
+
+.doc ul,
+.doc ol {
+  padding-left: 22px;
+}
+
+.doc li + li {
+  margin-top: 6px;
+}
+
+.table-wrap {
+  margin: 16px 0 0;
+  overflow-x: auto;
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.table-wrap:focus-visible {
+  outline-offset: 2px;
+}
+
+table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+thead th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody th {
+  font-weight: 700;
+}
+
+/* No celular, cada linha da tabela vira um bloco, com o titulo da coluna
+   acima de cada valor (data-label). */
+@media (max-width: 719px) {
+  .table-wrap {
+    overflow: visible;
+  }
+
+  table {
+    min-width: 0;
+  }
+
+  table,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  th,
+  td {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  td {
+    margin-top: 10px;
+  }
+
+  td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+}
+
+mark.pending {
+  padding: 0 4px;
+  border-radius: 4px;
+  background: var(--pending);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  font-weight: 700;
+}
+
+.note {
+  margin: 16px 0 0;
+  border-radius: var(--radius-small);
+  background: var(--tile);
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.steps {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  counter-increment: step;
+  padding: 0 0 0 46px;
+  min-height: 34px;
+}
+
+.steps li + li {
+  margin-top: 14px;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.path {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---------- 404 ---------- */
+
+.lost {
+  padding: 60px 0 40px;
+}
+
+.lost-number {
+  margin: 0;
+  font-family: var(--playful);
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 0.85;
+  color: var(--coral-press);
+}
+
+.lost h1 {
+  margin: 18px 0 0;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Telas maiores ---------- */
+
+@media (min-width: 720px) {
+  :root {
+    --gutter: 32px;
+  }
+
+  .site-nav {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 56px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .role {
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .section-head h2 {
+    font-size: 44px;
+  }
+
+  .doc h1 {
+    font-size: 52px;
+  }
+}
+
+/* As tres telas cabem lado a lado so a partir daqui; antes, a faixa rola. */
+@media (min-width: 900px) {
+  .screens {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1000px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card--ink {
+    grid-column: span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}

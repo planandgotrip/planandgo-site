@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // O GitHub Pages serve esta pagina em qualquer endereco que nao existe,
+    // inclusive em subpastas. A base faz os links e o CSS funcionarem tanto
+    // em planandgotrip.github.io/planandgo-site/ quanto no dominio proprio.
+    (function () {
+      if (location.protocol === 'file:') return;
+      var base = document.createElement('base');
+      base.href = /\.github\.io$/.test(location.hostname) ? '/planandgo-site/' : '/';
+      document.head.appendChild(base);
+    })();
+  </script>
+  <title>Página não encontrada · Plan&amp;Go</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#EAEAE7">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Plan&amp;Go, página inicial">
+        <span>PLAN&amp;GO</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo" class="lost">
+    <div class="wrap">
+      <p class="lost-number" aria-hidden="true">404</p>
+      <h1>Esta página não existe</h1>
+      <p class="hero-lead">O endereço pode ter mudado ou estar digitado errado. As páginas do site são estas:</p>
+      <ul class="facts">
+        <li><a href="./">Início</a></li>
+        <li><a href="privacidade/">Política de Privacidade</a></li>
+        <li><a href="termos/">Termos de Uso</a></li>
+        <li><a href="excluir-conta/">Excluir conta</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-company">
+        <span class="label">Plan&amp;Go</span>
+        <a href="mailto:planandgotrip@gmail.com">planandgotrip@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
